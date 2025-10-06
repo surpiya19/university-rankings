@@ -13,6 +13,78 @@ def run_query(query, params=None):
 
 
 if __name__ == "__main__":
+    print("\n--- Basic Analysis ---")
+
+    # --- 1. Count total universities and records ---
+    q_counts = """
+    SELECT COUNT(DISTINCT institution) AS total_universities,
+           COUNT(*) AS total_records
+    FROM university_rankings;
+    """
+    df_counts = run_query(q_counts)
+    print("\nTotal universities and records:\n", df_counts)
+
+    # --- 2. Distinct countries and years ---
+    q_distincts = """
+    SELECT COUNT(DISTINCT country) AS total_countries,
+           GROUP_CONCAT(DISTINCT year) AS available_years
+    FROM university_rankings;
+    """
+    df_distincts = run_query(q_distincts)
+    print("\nDistinct countries and available years:\n", df_distincts)
+
+    # --- 3. Average, min, max scores per year ---
+    q_score_summary = """
+    SELECT year,
+           ROUND(AVG(score), 2) AS avg_score,
+           ROUND(MIN(score), 2) AS min_score,
+           ROUND(MAX(score), 2) AS max_score
+    FROM university_rankings
+    WHERE score IS NOT NULL
+    GROUP BY year
+    ORDER BY year;
+    """
+    df_score_summary = run_query(q_score_summary)
+    print("\nScore summary by year:\n", df_score_summary)
+
+    # Line chart of score trends
+    fig_basic = px.line(
+        df_score_summary,
+        x="year",
+        y="avg_score",
+        markers=True,
+        title="Average University Score Over the Years",
+        labels={"avg_score": "Average Score", "year": "Year"},
+    )
+    fig_basic.write_html("visualizations/avg_score_over_years.html")
+
+    # --- 4. Top 5 universities by average score ---
+    q_top_universities = """
+    SELECT institution,
+           country,
+           ROUND(AVG(score), 2) AS avg_score
+    FROM university_rankings
+    WHERE score IS NOT NULL
+    GROUP BY institution, country
+    ORDER BY avg_score DESC
+    LIMIT 5;
+    """
+    df_top_universities = run_query(q_top_universities)
+    print("\nTop 5 universities by average score:\n", df_top_universities)
+
+    fig_top_univ = px.bar(
+        df_top_universities,
+        x="institution",
+        y="avg_score",
+        color="country",
+        text="avg_score",
+        title="Top 5 Universities by Average Score",
+    )
+    fig_top_univ.update_layout(yaxis_title="Average Score", xaxis_title="University")
+    fig_top_univ.write_html("visualizations/top_5_universities_avg_score.html")
+
+    print("\nBasic analysis visualizations saved as HTML files.")
+
     print("\n--- Bonus Analysis with Enhanced Visualizations ---")
 
     # --- Top 10 countries by universities in top 100 ---
@@ -25,9 +97,8 @@ if __name__ == "__main__":
     LIMIT 10;
     """
     df_top_countries = run_query(q_top_countries)
-    print(df_top_countries)
+    print("\nTop 10 countries by top-100 universities:\n", df_top_countries)
 
-    # Enhanced bar chart for top countries
     fig1 = px.bar(
         df_top_countries,
         x="country",
@@ -73,9 +144,8 @@ if __name__ == "__main__":
     LIMIT 10;
     """
     df_score_change = run_query(q_score_change)
-    print(df_score_change)
+    print("\nTop 10 universities by score change (2014 → 2015):\n", df_score_change)
 
-    # Horizontal bar chart with color gradient
     fig3 = px.bar(
         df_score_change,
         y="institution",
