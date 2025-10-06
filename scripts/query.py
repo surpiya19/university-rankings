@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-# Path to your SQLite database
+# Path to my SQLite database
 DB_PATH = "data/university_database.db"
 
 
