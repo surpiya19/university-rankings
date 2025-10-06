@@ -28,24 +28,29 @@ The .devcontainer configuration ensures the environment is **always ready** — 
 
 ## Project Structure
 
-```markdown
-| `.devcontainer/` | Dev Container configuration for VS Code |
-| ├── `devcontainer.json` | Defines container environment and extensions |
-| └── `Dockerfile` | Installs Python, SQLite, and dependencies |
-| `data/` | Contains the SQLite database |
-| └── `university_database.db` | Pre-built database with university rankings (2012–2015) |
-| `scripts/` | All Python and SQL scripts |
-| ├── `query.py` | Performs CRUD operations on the database |
-| ├── `crud_ops.sql` | SQL version of the CRUD operations |
-| ├── `additional_analysis.py` | Generates visualizations and advanced queries |
-| └── `test_connection.py` *(optional)* | Verifies database connection |
-| `visualizations/` | Folder containing generated HTML visualizations |
-| ├── `top_countries_top100.html` | Bar chart of top 10 countries by top-100 universities |
-| ├── `score_distribution_top10_countries.html` | Box plot of score distributions |
-| └── `score_change_2014_2015.html` | Horizontal bar chart of top score changes |
-| `requirements.txt` | Python dependencies (pandas, plotly, sqlite-utils) |
-| `README.md` | Project overview and documentation |
-```
+university-database/
+│
+├── .devcontainer/
+│   ├── devcontainer.json            # Defines container environment and VS Code extensions
+│   ├── docker-compose.yml           # Configures service and volume for the Dev Container
+│   └── Dockerfile                   # Installs Python, SQLite, and dependencies
+│
+├── data/
+│   └── university_database.db       # Pre-built SQLite database (2012–2015 rankings)
+│
+├── scripts/
+│   ├── query.py                     # Performs CRUD operations on the database
+│   ├── crud_ops.sql                 # SQL version of CRUD operations
+│   ├── additional_analysis.py       # Generates visualizations and extended analysis
+│   └── test_conn.py                 # Verifies database connection
+│
+├── visualizations/
+│   ├── top_countries_top100.html           # Top 10 countries by top-100 universities
+│   ├── score_distribution_top10_countries.html  # Score distributions for top 10 countries
+│   └── score_change_2014_2015.html         # Universities with largest score changes
+│
+├── requirements.txt                 # Python dependencies (pandas, plotly, sqlite-utils)
+└── README.md                        # Project overview and documentation
 
 ---
 
@@ -91,7 +96,7 @@ flowchart TD
 ```
 ---
 
-## 💡 Viewing Visualizations
+## Viewing Visualizations
 After running `python scripts/additional_analysis.py`, open the generated HTML files in your browser:
 
 ```bash
@@ -103,13 +108,13 @@ open visualizations/score_change_2014_2015.html
 ---
 
 ## Visualization
-1. Score distributions across the top 10 countries:
+**1. Score distributions across the top 10 countries:**
 ![alt text](<screenshots/Screenshot 2025-10-06 at 5.08.06 PM.png>)
 
-2. Top countries having their universities in top 100
+**2. Top countries having their universities in top 100**
 ![alt text](<screenshots/Screenshot 2025-10-06 at 5.09.20 PM.png>)
 
-3. Score change from 2014 -> 2015 in top countries
+**3. Score change from 2014 -> 2015 in top 10 countries**
 ![alt text](<screenshots/Screenshot 2025-10-06 at 5.10.58 PM.png>)
 
 ---
