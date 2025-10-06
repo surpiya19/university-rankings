@@ -63,9 +63,8 @@ except Exception as e:
 
 ```
 Outputs:
-![alt text](<Screenshot 2025-10-06 at 4.53.46 PM.png>)
-
-![SQLite Viewer](<Screenshot 2025-10-06 at 4.57.12 PM.png>)
+![alt text](<screenshots/Screenshot 2025-10-06 at 4.53.46 PM.png>)
+![SQLite Viewer](<screenshots/Screenshot 2025-10-06 at 4.57.12 PM.png>)
 
 ---
 
