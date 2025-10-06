@@ -28,22 +28,26 @@ The .devcontainer configuration ensures your environment is **always ready** —
 
 ## Project Structure
 
-.
-├── .devcontainer/
-│   ├── devcontainer.json
-│   └── Dockerfile
-├── data/
-│   └── university_database.db
-├── scripts/
-│   ├── query.py
-│   ├── crud_ops.sql
-│   └── additional_analysis.py
-├── visualizations/
-│   ├── top_countries_top100.html
-│   ├── score_distribution_top10_countries.html
-│   └── score_change_2014_2015.html
-├── requirements.txt
-└── README.md
+```markdown
+| Path | Description |
+|------|--------------|
+| `.devcontainer/` | Dev Container configuration for VS Code |
+| ├── `devcontainer.json` | Defines container environment and extensions |
+| └── `Dockerfile` | Installs Python, SQLite, and dependencies |
+| `data/` | Contains the SQLite database |
+| └── `university_database.db` | Pre-built database with university rankings (2012–2015) |
+| `scripts/` | All Python and SQL scripts |
+| ├── `query.py` | Performs CRUD operations on the database |
+| ├── `crud_ops.sql` | SQL version of the CRUD operations |
+| ├── `additional_analysis.py` | Generates visualizations and advanced queries |
+| └── `test_connection.py` *(optional)* | Verifies database connection |
+| `visualizations/` | Folder containing generated HTML visualizations |
+| ├── `top_countries_top100.html` | Bar chart of top 10 countries by top-100 universities |
+| ├── `score_distribution_top10_countries.html` | Box plot of score distributions |
+| └── `score_change_2014_2015.html` | Horizontal bar chart of top score changes |
+| `requirements.txt` | Python dependencies (pandas, plotly, sqlite-utils) |
+| `README.md` | Project overview and documentation |
+
 
 ---
 
@@ -75,14 +79,23 @@ Here’s how everything connects inside the Dev Container:
 ```mermaid
 flowchart TD
 
-    subgraph DevContainer["VS Code Dev Container 🐳"]
-        A[📜 scripts/query.py] -->|CRUD queries| B[(💾 data/university_database.db)]
+    subgraph DevContainer["VS Code Dev Container"]
+        A[scripts/query.py] -->|CRUD queries| B[(data/university_database.db)]
         A --> C[pandas DataFrame]
-        C --> D[📊 visualizations/*.html]
-        E[📜 scripts/additional_analysis.py] -->|Analytical queries + Plotly| B
+        C --> D[visualizations/*.html]
+        E[scripts/additional_analysis.py] -->|Analytical queries + Plotly| B
         E --> D
     end
 
     B -.->|Database interactions| A
     B -.->|Data retrieval| E
     DevContainer --> F[🌐 GitHub Repository]
+```
+
+## 💡 Viewing Visualizations
+After running `python scripts/additional_analysis.py`, open the generated HTML files in your browser:
+
+```bash
+open visualizations/top_countries_top100.html
+open visualizations/score_distribution_top10_countries.html
+open visualizations/score_change_2014_2015.html
