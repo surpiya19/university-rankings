@@ -1,6 +1,8 @@
 services:
   dev:
-    image: mcr.microsoft.com/devcontainers/python:3.12
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/workspaces:cached
     command: sleep infinity

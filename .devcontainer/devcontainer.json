@@ -2,8 +2,8 @@
        "name": "SQLite Dev",
        "dockerComposeFile": "docker-compose.yml",
        "service": "dev",
-       "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-       "postCreateCommand": "pip install -r requirements.txt",
+       "workspaceFolder": "/workspaces/${containerWorkspaceFolderBasename}",
+       "postCreateCommand": "sudo apt-get update && sudo apt-get install -y sqlite3 && pip install -r requirements.txt",
        "customizations": {
               "vscode": {
                      "extensions": [
