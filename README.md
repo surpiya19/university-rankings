@@ -27,7 +27,7 @@ The .devcontainer configuration ensures the environment is **always ready** — 
 ---
 
 ## Project Structure
-
+```markdown
 university-database/
 │
 ├── .devcontainer/
@@ -51,7 +51,7 @@ university-database/
 │
 ├── requirements.txt                 # Python dependencies (pandas, plotly, sqlite-utils)
 └── README.md                        # Project overview and documentation
-
+```
 ---
 
 ## DB Connection Test:
