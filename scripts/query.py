@@ -6,7 +6,6 @@ DB_PATH = "data/university_database.db"
 
 
 def run_query(query, params=None):
-    """Run a SQL query and return results as a DataFrame."""
     conn = sqlite3.connect(DB_PATH)
     df = pd.read_sql_query(query, conn, params=params)
     conn.close()
@@ -14,7 +13,6 @@ def run_query(query, params=None):
 
 
 def execute_sql(sql, params=None):
-    """Execute SQL that changes the database (INSERT, UPDATE, DELETE)."""
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
     if params:

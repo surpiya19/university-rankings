@@ -38,7 +38,7 @@ if __name__ == "__main__":
         title="Top 10 Countries by Universities in Top 100",
     )
     fig1.update_layout(yaxis_title="Number of Universities", xaxis_title="Country")
-    fig1.write_html("top_countries_top100_pretty.html")
+    fig1.write_html("visualizations/top_countries_top100.html")
 
     # --- Score distribution for top 10 countries ---
     top_countries_list = df_top_countries["country"].tolist()
@@ -59,7 +59,7 @@ if __name__ == "__main__":
         title="Score Distribution for Top 10 Countries",
     )
     fig2.update_layout(yaxis_title="Score", xaxis_title="Country", showlegend=False)
-    fig2.write_html("score_distribution_top10_countries.html")
+    fig2.write_html("visualizations/score_distribution_top10_countries.html")
 
     # --- Top 10 universities with largest score change 2014 → 2015 ---
     q_score_change = """
@@ -91,6 +91,6 @@ if __name__ == "__main__":
         yaxis_title="University",
         yaxis={"categoryorder": "total ascending"},
     )
-    fig3.write_html("score_change_2014_2015_pretty.html")
+    fig3.write_html("visualizations/score_change_2014_2015.html")
 
     print("\nEnhanced visualizations saved as HTML files.")
