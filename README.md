@@ -47,7 +47,7 @@ The .devcontainer configuration ensures your environment is **always ready** —
 | └── `score_change_2014_2015.html` | Horizontal bar chart of top score changes |
 | `requirements.txt` | Python dependencies (pandas, plotly, sqlite-utils) |
 | `README.md` | Project overview and documentation |
-
+```
 
 ---
 
