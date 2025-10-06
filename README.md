@@ -17,7 +17,7 @@ The project runs in a reproducible Dev Container environment with all dependenci
 
 ## 🧩 Dev Container Setup
 
-The .devcontainer configuration ensures your environment is **always ready** — no manual installs are required.
+The .devcontainer configuration ensures the environment is **always ready** — no manual installs are required.
 ##### 🔧 Includes
 - Python 3.12
 - SQLite3 CLI
@@ -29,8 +29,6 @@ The .devcontainer configuration ensures your environment is **always ready** —
 ## Project Structure
 
 ```markdown
-| Path | Description |
-|------|--------------|
 | `.devcontainer/` | Dev Container configuration for VS Code |
 | ├── `devcontainer.json` | Defines container environment and extensions |
 | └── `Dockerfile` | Installs Python, SQLite, and dependencies |
@@ -51,9 +49,9 @@ The .devcontainer configuration ensures your environment is **always ready** —
 
 ---
 
-## DB Connection:
+## DB Connection Test:
 
-```
+```bash
 import sqlite3
 
 try:
@@ -89,8 +87,9 @@ flowchart TD
 
     B -.->|Database interactions| A
     B -.->|Data retrieval| E
-    DevContainer --> F[🌐 GitHub Repository]
+    DevContainer --> F[GitHub Repository]
 ```
+---
 
 ## 💡 Viewing Visualizations
 After running `python scripts/additional_analysis.py`, open the generated HTML files in your browser:
@@ -99,3 +98,18 @@ After running `python scripts/additional_analysis.py`, open the generated HTML f
 open visualizations/top_countries_top100.html
 open visualizations/score_distribution_top10_countries.html
 open visualizations/score_change_2014_2015.html
+```
+
+---
+
+## Visualization
+1. Score distributions across the top 10 countries:
+![alt text](<screenshots/Screenshot 2025-10-06 at 5.08.06 PM.png>)
+
+2. Top countries having their universities in top 100
+![alt text](<screenshots/Screenshot 2025-10-06 at 5.09.20 PM.png>)
+
+3. Score change from 2014 -> 2015 in top countries
+![alt text](<screenshots/Screenshot 2025-10-06 at 5.10.58 PM.png>)
+
+---
