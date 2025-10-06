@@ -1,10 +1,3 @@
--- ===========================================
--- University Rankings - CRUD Operations
--- ===========================================
--- Author: Supriya
--- Description: SQL version of the operations performed in query.py
--- ===========================================
-
 -- 1. READ: Top 5 universities in 2015
 SELECT institution, country, world_rank, score
 FROM university_rankings
@@ -44,7 +37,7 @@ WHERE year = 2015
 
 -- -------------------------------------------
 
--- 6. READ (Optional): View updated top 5 universities in 2015
+-- 6. READ : View updated top 5 universities in 2015
 SELECT institution, country, world_rank, score
 FROM university_rankings
 WHERE year = 2015
