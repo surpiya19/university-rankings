@@ -112,13 +112,14 @@ open visualizations/score_change_2014_2015.html
 
 ## Queries Used:
 
-| Query                                                                                                                                           | Type     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `sql<br>SELECT institution, country, world_rank, score<br>FROM university_rankings<br>WHERE year = 2015<br>ORDER BY score DESC<br>LIMIT 5;<br>` | `SELECT` |
-| `sql<br>SELECT COUNT(*) AS japan_top200<br>FROM university_rankings<br>WHERE country = 'Japan' AND year = 2013 AND world_rank <= 200;<br>`      | `SELECT` |
-| `sql<br>INSERT INTO university_rankings (institution, country, world_rank, score, year)<br>VALUES ('Duke Tech', 'USA', 350, 60.5, 2014);<br>`   | `INSERT` |
-| `sql<br>UPDATE university_rankings<br>SET score = score + 1.2<br>WHERE institution = 'University of Oxford' AND year = 2014;<br>`               | `UPDATE` |
-| `sql<br>DELETE FROM university_rankings<br>WHERE year = 2015 AND score < 45;<br>`                                                               | `DELETE` |
+| Query                                                                                                                           | Type   | Description                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------------------------------------------------------- |
+| `SELECT institution, country, world_rank, score FROM university_rankings WHERE year = 2015 ORDER BY score DESC LIMIT 5;`        | SELECT | Retrieves the top 5 universities in 2015.                   |
+| `SELECT COUNT(*) AS japan_top200 FROM university_rankings WHERE country = 'Japan' AND year = 2013 AND world_rank <= 200;`       | SELECT | Counts Japanese universities ranked in the top 200 in 2013. |
+| `INSERT INTO university_rankings (institution, country, world_rank, score, year) VALUES ('Duke Tech', 'USA', 350, 60.5, 2014);` | INSERT | Adds a new record for "Duke Tech" (2014).                   |
+| `UPDATE university_rankings SET score = score + 1.2 WHERE institution = 'University of Oxford' AND year = 2014;`                | UPDATE | Increases University of Oxford’s 2014 score by 1.2.         |
+| `DELETE FROM university_rankings WHERE year = 2015 AND score < 45;`                                                             | DELETE | Removes 2015 universities with scores below 45.             |
+
 
 ---
 
