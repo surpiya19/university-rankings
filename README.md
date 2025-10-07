@@ -123,7 +123,7 @@ open visualizations/score_change_2014_2015.html
 
 ---
 
-## Visualization For additional analysis
+## Visualization for additional analysis
 
 **1. Score distributions across the top 10 countries:**
 ![alt text](<screenshots/Screenshot 2025-10-06 at 5.08.06 PM.png>)
@@ -136,3 +136,12 @@ open visualizations/score_change_2014_2015.html
 
 ---
 
+## Proof of Execution:
+
+**Queries for analysis + tests**
+ 
+![alt text](<screenshots/Screenshot 2025-10-07 at 5.19.48 PM.png>)
+
+![alt text](<screenshots/Screenshot 2025-10-07 at 5.20.14 PM.png>)
+
+---
