@@ -123,7 +123,7 @@ open visualizations/score_change_2014_2015.html
 ---
 
 ## Queries Used:
-```markdown
+
 | Query                                                                                                                                           | Type     |
 | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `sql<br>SELECT institution, country, world_rank, score<br>FROM university_rankings<br>WHERE year = 2015<br>ORDER BY score DESC<br>LIMIT 5;<br>` | `SELECT` |
@@ -131,6 +131,6 @@ open visualizations/score_change_2014_2015.html
 | `sql<br>INSERT INTO university_rankings (institution, country, world_rank, score, year)<br>VALUES ('Duke Tech', 'USA', 350, 60.5, 2014);<br>`   | `INSERT` |
 | `sql<br>UPDATE university_rankings<br>SET score = score + 1.2<br>WHERE institution = 'University of Oxford' AND year = 2014;<br>`               | `UPDATE` |
 | `sql<br>DELETE FROM university_rankings<br>WHERE year = 2015 AND score < 45;<br>`                                                               | `DELETE` |
-```
+
 
 ---
