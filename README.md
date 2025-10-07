@@ -69,9 +69,10 @@ except Exception as e:
     print("Connection failed:", e)
 
 ```
-**Outputs:**
+**Testing Connections:**
 ![alt text](<screenshots/Screenshot 2025-10-06 at 4.53.46 PM.png>)
-![SQLite Viewer](<screenshots/Screenshot 2025-10-06 at 4.57.12 PM.png>)
+
+---
 
 **Basic Analysis View in DBeaver:**
 ![alt text](<screenshots/Screenshot 2025-10-06 at 5.45.37 PM.png>)
@@ -139,7 +140,7 @@ open visualizations/score_change_2014_2015.html
 ## Proof of Execution:
 
 **Queries for analysis + tests**
- 
+
 ![alt text](<screenshots/Screenshot 2025-10-07 at 5.19.48 PM.png>)
 
 ![alt text](<screenshots/Screenshot 2025-10-07 at 5.20.14 PM.png>)
